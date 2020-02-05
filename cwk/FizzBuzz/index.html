@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FizzBuzz</title>
+<style>
+h1 {
+    text-align: center;
+}
+div {
+    border: 1px solid blue;
+    padding: 2px;
+    margin: 2px;
+    font-size: 1.5em;
+    margin: 0 auto;
+}
+.fizzbuzz {
+    overflow: scroll;
+    height: 400px;
+    width: 50%;
+}
+
+</style>
+</head>
+<body>
+    <h1>
+        Fizz Buzz
+    </h1>
+    <div class="fizzbuzz">
+
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--<script src="script.js."></script>-->
+<script>
+var num = 0;
+var fizz = "Fizz"
+var buzz = " Buzz"
+
+for (var i = 101; i > 0; i--) {
+    if (num%3==0 && num%5==0 && num!=0) {
+        newrow = $('<div>');
+        newrow.text(num + ': ' + fizz + buzz);
+        $('.fizzbuzz').append(newrow);
+    }
+    else if (num%3==0 && num%5!=0) {
+        newrow = $('<div>');
+        newrow.text(num + ': ' + fizz);
+        $('.fizzbuzz').append(newrow);
+    }
+    else if (num%3!=0 && num%5==0) {
+        newrow = $('<div>');
+        newrow.text(num + ': ' + buzz);
+        $('.fizzbuzz').append(newrow);
+    }
+    else if (num%3!=0 && num%5!=0) {
+        newrow = $('<div>');
+        newrow.text(num + ': ' + "skip");
+        $('.fizzbuzz').append(newrow);
+    }
+    num++;
+};
+</script>
+</body>
+</html>

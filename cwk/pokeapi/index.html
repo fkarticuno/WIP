@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PogoApiTest</title>
+    <style>
+        img {
+            height:100px;
+            width: 100px;
+        }
+        .wrap {
+            border: 2px double blue;
+            width: 200px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>
+        POGO API TEST
+    </h1>
+    <p>
+        Search pokemon by id# (buggy due to api organization)
+    </p>
+    <span>
+        <input type="text" id="pokemon-input">
+        <input id="search-pokemon" type="submit" value="Search Pokedex">
+    </span>
+<div class="wrap">
+    <div class="name"></div>
+    <div class="image"></div>
+    <div class="infoA"></div>
+    <div class="infoD"></div>
+    <div class="infoS"></div>
+    <div>
+        <span class="type1"></span>
+        <span class="type2"></span>
+    </div>
+    <div class="maxcp"></div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/ext-core/3.1.0/ext-core.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
+
+<script>
+/*  Failed    
+$.ajax({
+    //  I do not understand how the URL & Key structure is expected
+    url: 'https://pokemon-go1.p.rapidapi.com'+'&apikey=1bb40a3f2cmsh737e756f49ff562p1d4980jsn6537251a9bc1',
+    method: 'Get',
+    })
+    .then(function(response){
+        /*
+        expected content: pokemon info
+        acutal outcome: blank
+        
+        console.log(response);
+        $('#info').text(JSON.stringify(response));
+    })
+*/
+
+//  Handles onClick to search for pokemon
+$("#search-pokemon").on("click", function(event) {
+    searchDexForStats();
+    searchDexForType();
+    searchDexForMaxCP();
+});
+
+//  Handles API query for pokemon stats and forms url for pokemon image
+var settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://pokemon-go1.p.rapidapi.com/pokemon_stats.json",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "pokemon-go1.p.rapidapi.com",
+		"x-rapidapi-key": "1bb40a3f2cmsh737e756f49ff562p1d4980jsn6537251a9bc1"
+	}
+}
+
+var pokemon = 0;
+function searchDexForStats() {
+$.ajax(settings).done(function (response) {
+    console.log(response);
+    pokemon = $("#pokemon-input").val().trim();
+    console.log(pokemon);
+
+    var mon = response[pokemon].pokemon_name.toLowerCase();
+    $('.name').text(`Name: ${response[pokemon].pokemon_name}`);
+    $('.image').html(`<img src=https://img.pokemondb.net/artwork/${mon}.jpg>`);
+    $('.infoA').text(`Attack: ${response[pokemon].base_attack}`);
+    $('.infoD').text(`Defense: ${response[pokemon].base_defense}`);
+    $('.infoS').text(`Stamina: ${response[pokemon].base_stamina}`);
+    
+    console.log(mon)
+    console.log(response[pokemon].base_attack)
+});
+}
+//  Handle search for pokemon type
+function searchDexForType() {
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://pokemon-go1.p.rapidapi.com/pokemon_types.json",
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "pokemon-go1.p.rapidapi.com",
+            "x-rapidapi-key": "1bb40a3f2cmsh737e756f49ff562p1d4980jsn6537251a9bc1"
+        },
+    };
+    $.ajax(settings).done(function (response) {
+    console.log(response[0]);
+    pokemon = $("#pokemon-input").val().trim();
+    console.log(pokemon);
+
+    var mon = response[pokemon].pokemon_name.toLowerCase();
+    $('.type1').text(`${response[pokemon].type[0]}`);
+    if (response[pokemon].type[1] != undefined) {
+    $('.type2').text(` | ${response[pokemon].type[1]}`);
+    }
+    else { 
+        $('.type2').text(``);
+    }
+    console.log(mon)
+    console.log(response[pokemon].type[0]+' | '+response[pokemon].type[1])
+    });
+};
+// Handles max CP search  
+function searchDexForMaxCP() {
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://pokemon-go1.p.rapidapi.com/pokemon_max_cp.json",
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-host": "pokemon-go1.p.rapidapi.com",
+        "x-rapidapi-key": "1bb40a3f2cmsh737e756f49ff562p1d4980jsn6537251a9bc1"
+    },
+};
+$.ajax(settings).done(function (response) {
+console.log(response);
+pokemon = $("#pokemon-input").val().trim();
+//console.log(pokemon);
+
+var mon = response[pokemon].pokemon_name.toLowerCase();
+$('.maxcp').text(`Max Cp: ${response[pokemon].max_cp}`);
+
+console.log(mon)
+console.log(response[pokemon].max_cp)
+});
+};
+
+// img based on avialiability @ https://img.pokemondb.net/artwork/charmander.jpg
+</script>
+</body>
+</html>

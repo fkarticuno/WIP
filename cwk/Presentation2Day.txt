@@ -1,0 +1,63 @@
+6:19 PM 11/26/2019
+Presentations
+=============================================
+1.	Matt	Sara	Anthony	Bishop	Chris
+CASE BY CASE
+Crime info is non-centralized
+Cannot solve cases conccurrently
+Software discrepencies cause roadblocks
+[definitely minority report]
+Socrata Crime Data
+passport js and bcrypt to make user accounts
+Anthony - maps (free is not best but is ok) 
+	- difficult to integrate due to scoping
+Sara - downloaded the namus-missing person data
+Bishop - dev form to parse CSV into db
+JS animated background?	
+=============================================
+2.	Anne 	kevin	Mario	Mark	Malik
+EUREKA HEALTH
+Problems
+malik - trking meds, physician access, appts, stress
+Solutions
+sec prsnl med prof, acc for pharm, heath art, 
+user meditation area, live doc chat, drug delivery
+Mario - profile creation page, google maps
+Kevin - db
+Anne - CEO
+=============================================
+3.	Tianna	Pierre	Vincent	Matt	John
+Pick 'n Chill
+Scraper for streaming service
+Tianna - front end (flickity), parralx bgr
+Vincent - comments
+matt - watchlist
+Pierre - connected ext api
+=============================================
+
+=============================================
+4.	Tony  	Chelsea	MJ	x
+LUCY LANE (diy  shows)
+uses google calendar
+secure form to get mj's address, timewall
+Tony - booking page into sql
+embedded google map w directions
+=============================================
+5.	Marc	Will	Michael	Minjuu
+THE BREAKFAST CLUB
+Build's rental app for small business w/o cap
+michael - boss
+minjuu - DB
+marc - google api
+will - frontend
+=============================================
+6.	Gage	Will	James	Sam
+FINANCIAL FRENZY
+plaid api links banking info with your app
+Saving competitions!
+=============================================
+7.	Cody	Kritsh	Travis	Aarron
+kishtish - charts
+travis - add employee
+
+1805 Brooktree Court, Henrico, 23238 --> Saturday @ 7.

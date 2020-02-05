@@ -1,0 +1,43 @@
+Config {
+  credentials: null,
+  credentialProvider:
+   CredentialProviderChain {
+     providers:
+      [ [Function],
+        [Function],
+        [Function],
+        [Function],
+        [Function],
+        [Function],
+        [Function] ],
+     resolveCallbacks: [] },
+  region: undefined,
+  logger: null,
+  apiVersions: {},
+  apiVersion: null,
+  endpoint: undefined,
+  httpOptions: { timeout: 120000 },
+  maxRetries: undefined,
+  maxRedirects: 10,
+  paramValidation: true,
+  sslEnabled: true,
+  s3ForcePathStyle: false,
+  s3BucketEndpoint: false,
+  s3DisableBodySigning: true,
+  computeChecksums: true,
+  convertResponseTypes: true,
+  correctClockSkew: false,
+  customUserAgent: null,
+  dynamoDbCrc32: true,
+  systemClockOffset: 0,
+  signatureVersion: null,
+  signatureCache: true,
+  retryDelayOptions: {},
+  useAccelerateEndpoint: false,
+  clientSideMonitoring: false,
+  endpointDiscoveryEnabled: false,
+  endpointCacheSize: 1000,
+  hostPrefixEnabled: true,
+  stsRegionalEndpoints: null }
+Error: connect ETIMEDOUT 169.254.169.254:80
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1106:14)

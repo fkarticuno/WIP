@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Main Page</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style>
+    div, span {
+        border: 2px solid black;
+    }
+    .head, .foot {
+        width: device-width;
+        height: 75px;
+        background-color: aquamarine;
+    }
+    .bod {
+        width: device-width;
+        height: 460px;
+        background-color: bisque;
+    }
+    #mpv1 {
+        height: 200px;
+        width: 200px;
+    }
+    #searchbar {
+        position: absolute;
+    }
+    #searchbox {
+        height: 50px;
+    }
+    #seltype {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        margin-top: 100px;
+        background-color: slateblue;
+    }
+    
+
+    </style>
+
+</head>
+<body>
+    <div class="head" id="header">
+
+    </div>
+
+    <div class="bod" id="bodi">
+        <span class="mock_preview" id="mpv">
+            <img id="mpv1" src="./Mock-ups/preview.png" alt="what it be like" srcset="">
+        </span>
+        <span class="search" id="searchbar">
+            <input id="searchbox" value="Search..." type="text"></input>
+        </span>
+            <span id="seltype">
+                <ul id="sel">
+                    <li> <input type="checkbox" name="seltype" id=""> cat</li>
+                    <li> <input type="checkbox" name="seltype" id=""> dog</li>
+                    <li> <input type="checkbox" name="seltype" id=""> rat</li>
+                </ul>
+            </span>
+    </div>
+    <div class="selgenre" id="genres">
+        <input type="range" name="" id="">cats</input> 
+    </div>
+    <div class="books">
+
+    </div>
+
+    <div class="movies">
+
+    </div>
+    <div class="music">
+
+    </div>
+    <div class="foot" id="footer">
+
+    </div>
+
+    <script>
+    var Director = [];
+    var Starring = [];
+    var bokarr = ["Title","AuthorF", "AuthorL","PubDate","publisher","Binding","synopsis","IniValue" ,"CurValue" , "Image", "Receipt"];
+    var movarr = ["Title", Director [1,2,3,4,5], Starring [1,2,3,4,5], "RelDate", "Format", "Plot","IniValue" ,"CurValue" , "Image", "Receipt"];
+    var musarr = ["Title", "Musician", "WrittenBy", "Label", "RelDate", "Format", "Lyrics","IniValue" ,"CurValue" , "Image", "Receipt" ];
+    for (var i=0; i<bokarr.length;i++){
+        $(".books").append("<li>"+bokarr[i]+"</li>")
+    }
+
+    for (var i=0; i<movarr.length;i++){
+        $(".movies").append("<li>"+movarr[i]+"</li>")
+    }
+
+    for (var i=0; i<musarr.length;i++){
+        $(".music").append("<li>"+musarr[i]+"</li>")
+    }
+    </script>
+</body>
+</html>
